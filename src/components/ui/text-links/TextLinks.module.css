@@ -1,0 +1,23 @@
+.link_animated {
+  color: white;
+  animation: link_color 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.link {
+  color: var(--updates-background-color);
+}
+
+.link_text {
+  text-decoration: underline;
+}
+
+@keyframes link_color {
+  0%,
+  80% {
+    color: white;
+  }
+  100% {
+    color: var(--updates-background-color);
+  }
+}

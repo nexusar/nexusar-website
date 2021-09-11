@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavTextItem = (props) => {
-  const { text, link } = props.props;
+  const { text, link } = props;
 
   return (
     <li className="nav-item">

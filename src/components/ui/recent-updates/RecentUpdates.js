@@ -1,8 +1,7 @@
 import classes from './RecentUpdates.module.css';
 import { Fragment } from 'react';
 import { Box } from '@mui/system';
-import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import { Link } from 'react-router-dom';
+import TextLinks from '../text-links/TextLinks';
 
 const RecentUpdates = (props) => {
   return (
@@ -10,12 +9,9 @@ const RecentUpdates = (props) => {
       <Box sx={{ height: 43 }} />
       <div className={classes.container}>
         <p>
-          Save on Mac or iPad for university with education pricing. And get AirPods.{' '}
-          <Link to="/apply" className={classes.link}>
-            Shop Now
-          </Link>
+          We at Nexusar are hiring employees. Get a chance to be a part of this amazing journey with us.{' '}
+          <TextLinks text="Apply now" path="/apply" isAnimated="true" />
         </p>
-        <ChevronRightRoundedIcon />
       </div>
     </Fragment>
   );

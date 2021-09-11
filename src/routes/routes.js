@@ -1,12 +1,12 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import Intro from '../pages/Intro';
 import Splash from '../pages/Splash';
 import Home from '../pages/Home';
 import { Fragment } from 'react';
 import Navbar from '../components/ui/navbar/NavBar';
 import NotFound from '../pages/NotFound';
-
-import { useLocation } from 'react-router';
+import Apply from '../pages/Apply';
 
 const Routes = () => {
   const location = useLocation();
@@ -27,6 +27,9 @@ const Routes = () => {
         </Route>
         <Route path="/splash">
           <Splash />
+        </Route>
+        <Route path="/apply">
+          <Apply />
         </Route>
         <Route path="*" exact>
           <NotFound />

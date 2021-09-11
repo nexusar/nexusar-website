@@ -1,0 +1,8 @@
+:root {
+  /* Shades */
+  --background-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --header-background-color: rgba(0, 0, 0, 0.8);
+  --search-bar-background-color: #3c3c3d;
+  --updates-background-color: #0071e3;
+}
