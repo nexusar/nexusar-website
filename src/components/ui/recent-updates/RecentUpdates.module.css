@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #0071e3;
+  color: #ffffff;
+  height: 0px;
+  font-size: 0px;
+  animation: ribbon_drop 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+.link {
+  text-decoration: underline;
+  color: #ffffff;
+  animation: link_color 3s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes link_color {
+  0%,
+  80% {
+    color: #ffffff;
+  }
+  100% {
+    color: #0071e3;
+  }
+}
+
+@keyframes ribbon_drop {
+  0% {
+    background-color: #0071e3;
+    color: #ffffff;
+    height: 0px;
+    font-size: 0px;
+  }
+  20% {
+    background-color: #0071e3;
+    color: #ffffff;
+    height: 51px;
+    font-size: 0px;
+  }
+  20.5%,
+  80% {
+    background-color: #0071e3;
+    color: #ffffff;
+    height: 51px;
+    font-size: 14px;
+  }
+
+  100% {
+    background-color: #fff;
+    color: #1d1d1f;
+    height: 51px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  @keyframes ribbon_drop {
+    0% {
+      background-color: #0071e3;
+      color: #ffffff;
+      height: 0px;
+      font-size: 0px;
+    }
+    20% {
+      background-color: #0071e3;
+      color: #ffffff;
+      height: 71px;
+      font-size: 0px;
+    }
+    20.5%,
+    80% {
+      background-color: #0071e3;
+      color: #ffffff;
+      height: 71px;
+      font-size: 14px;
+    }
+
+    100% {
+      background-color: #fff;
+      color: #1d1d1f;
+      height: 71px;
+      font-size: 14px;
+    }
+  }
+}
