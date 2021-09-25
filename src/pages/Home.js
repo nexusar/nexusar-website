@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
-import { Container, Box } from '@mui/material';
-import RecentUpdates from '../components/ui/recent-updates/RecentUpdates';
+import { Container } from '@mui/material';
+import { Box } from '@mui/system';
+import RecentUpdates from '../components/layout/recent-updates/RecentUpdates';
 
 const Home = () => {
   return (

@@ -1,7 +1,7 @@
 import classes from './RecentUpdates.module.css';
 import { Fragment } from 'react';
 import { Box } from '@mui/system';
-import TextLinks from '../text-links/TextLinks';
+import TextLinks from '../../ui/text-links/TextLinks';
 
 const RecentUpdates = (props) => {
   return (

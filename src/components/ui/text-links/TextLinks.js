@@ -7,7 +7,8 @@ const TextLinks = (props) => {
 
   return (
     <Link to={path} className={linkClass}>
-      <span className={classes.link_text}>{text}</span> <i class="fas fa-chevron-right" style={{ fontSize: 10 }}></i>
+      <span className={classes.link_text}>{text}</span>{' '}
+      <i className="fas fa-chevron-right" style={{ fontSize: 10 }}></i>
     </Link>
   );
 };

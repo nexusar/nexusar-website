@@ -9,6 +9,9 @@
 }
 
 .link_text {
+  text-decoration: none;
+}
+.link_text:hover {
   text-decoration: underline;
 }
 

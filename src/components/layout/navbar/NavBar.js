@@ -48,17 +48,8 @@ const Navbar = () => {
               <Link to="/" className="nav-link nav-link-apple"></Link>
             </li>
 
-            {/* <NavTextItem props={{ text: 'Store', link: '/store' }} />
-            <NavTextItem props={{ text: 'Mac', link: '/mac' }} />
-            <NavTextItem props={{ text: 'iPad', link: '/ipad' }} />
-            <NavTextItem props={{ text: 'iPhone', link: '/iphone' }} />
-            <NavTextItem props={{ text: 'Watch', link: '/watch' }} />
-            <NavTextItem props={{ text: 'TV', link: '/tv' }} />
-            <NavTextItem props={{ text: 'Music', link: '/music' }} />
-            <NavTextItem props={{ text: 'Support', link: '/Support' }} /> */}
-
             {navTextItems.map((item) => (
-              <NavTextItem text={item} link={`/${item.toLowerCase()}`} />
+              <NavTextItem key={item} text={item} link={`/${item.toLowerCase()}`} />
             ))}
 
             <li className="nav-item">

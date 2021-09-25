@@ -1,0 +1,40 @@
+.background {
+  background-color: var(--local-nav-background-color);
+}
+
+.container {
+  align-items: center;
+  max-width: 98rem;
+  margin: 0 auto;
+  padding: 1.3rem 2.2rem;
+}
+
+.title {
+  font-size: 21px;
+  line-height: 1.14286;
+  letter-spacing: 0.011em;
+  font-family: 'SF Pro Display SemiBold';
+  color: var(--background-color);
+}
+
+.menu {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.menuItem {
+  align-items: center;
+  padding-right: 24px;
+  color: var(--background-color);
+}
+.menuItem:hover {
+  color: var(--updates-background-color);
+}
+
+@media screen and (max-width: 768px) {
+  .menuItem {
+    display: none;
+  }
+}

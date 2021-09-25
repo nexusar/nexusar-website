@@ -17,10 +17,39 @@
   white-space: nowrap;
 }
 
+.small-button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  background: #0071e3;
+  color: white;
+  font-size: 12px;
+  line-height: 1.33337;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-family: 'SF Pro Text Regular';
+  min-width: 23px;
+  padding: 4px 11px;
+  border-radius: 12px;
+}
+.small-button:hover {
+  background: #007fff;
+}
+
 .centered {
   margin: 3rem auto;
-  text-align: center;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+#waves {
+  width: 250px;
 }

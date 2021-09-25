@@ -1,0 +1,120 @@
+.introDarkContainer {
+  background-color: var(--text-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.background {
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  background-size: 200% 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0px;
+  color: var(--background-color);
+  animation: sizeReduce 1s normal forwards ease-in-out, gradientAnimation 5s linear infinite alternate;
+  animation-delay: 1s;
+}
+
+.bigHeader {
+  font-size: 12rem;
+  position: relative;
+  font-family: 'SF Pro Display SemiBold';
+  animation: moveUp 1s normal forwards ease-in-out;
+}
+
+.fadeIn {
+  animation: easeIn 1s normal forwards ease-in-out;
+  opacity: 0;
+  animation-delay: 2s;
+}
+
+.descHeader {
+  font-size: 4rem;
+  font-family: 'SF Pro Text SemiBold';
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    top: 100px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes easeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sizeReduce {
+  0% {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
+  100% {
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 0;
+    border-radius: 20px 20px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bigHeader {
+    font-size: 6rem;
+  }
+  .descHeader {
+    font-size: 2rem;
+  }
+  @keyframes sizeReduce {
+    0% {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    100% {
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .bigHeader {
+    font-size: 10rem;
+  }
+  .descHeader {
+    font-size: 3rem;
+  }
+}
