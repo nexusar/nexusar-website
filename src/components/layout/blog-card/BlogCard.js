@@ -1,22 +1,22 @@
 import { Card, CardContent, CardMedia, CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
 import classes from './BlogCard.module.css';
-import medium from '../../../assets/images/medium.png';
 
 const clipTitle = (title) => {
-  if (title.length < 20)
+  const titleLength = 40;
+  if (title.length < titleLength)
     return (
       title +
-      Array(40 - title.length)
+      Array(titleLength - title.length)
         .fill('\xa0')
         .join('')
     );
-  else if (title.length > 40) return title.substring(0, 37) + '...';
+  else if (title.length > titleLength) return title.substring(0, titleLength - 3) + '...';
   else return title;
 };
 
 const BlogCard = (props) => {
-  const { title, content, link, tags, handleClick } = props;
+  const { title, content, link, tags, handleClick, image } = props;
   const blogTitle = clipTitle(title);
 
   const cardClickHandler = () => {
@@ -31,10 +31,12 @@ const BlogCard = (props) => {
   return (
     <Card>
       <CardActionArea onClick={cardClickHandler}>
-        <CardMedia component="img" image={medium} alt="green iguana" />
+        <CardMedia component="img" height="200px" image={image} alt="green iguana" />
         <CardContent>
-          <h1 className={classes.cardTitle}>{blogTitle}</h1>
-          <p className={classes.cardContent}>{content}</p>
+          <div style={{ height: '220px' }}>
+            <h1 className={classes.cardTitle}>{blogTitle}</h1>
+            <p className={classes.cardContent}>{content}</p>
+          </div>
           <div style={{ marginTop: '16px' }}>
             <span className={classes.tags}>#{tags[0]}</span>
             <span className={classes.tags}>#{tags[1]}</span>

@@ -5,6 +5,7 @@ import { Alert, Container, Grid, Snackbar } from '@mui/material';
 import Parser from 'rss-parser';
 import BlogCard from '../components/layout/blog-card/BlogCard';
 import JumpingDots from '../components/ui/jumping-dots/JumpingDots';
+import { blogHelper } from '../utils/blog-helper';
 
 const Blogs = () => {
   const [mediumFeedJSON, setMediumFeedJSON] = useState([]);
@@ -13,7 +14,7 @@ const Blogs = () => {
   useEffect(() => {
     const parser = new Parser();
     (async () => {
-      let feed = await parser.parseURL('https://cors-anywhere.herokuapp.com/medium.com/feed/@absatyaprakash01/');
+      let feed = await parser.parseURL('https://secret-eyrie-32984.herokuapp.com/medium.com/feed/@absatyaprakash01/');
       setMediumFeedJSON(feed.items);
     })();
   }, []);
@@ -29,10 +30,10 @@ const Blogs = () => {
   };
 
   let blogComponent = (
-    <Fragment>
+    <div className="centered">
       <JumpingDots />
-      <h1 className="centered">Loading</h1>
-    </Fragment>
+      <h3>Loading</h3>
+    </div>
   );
 
   if (mediumFeedJSON.length) {
@@ -41,6 +42,8 @@ const Blogs = () => {
         {mediumFeedJSON.map((item) => {
           let tags = ['#medium', '#medium'];
           for (let i in [0, 1]) tags[i] = item.categories[i] ? item.categories[i] : tags[i];
+          const { subHeader, coverImageUrl } = blogHelper(item);
+          console.log(subHeader, coverImageUrl);
 
           return (
             <Grid key={item.guid} item xs={12} sm={6} md={4}>
@@ -48,8 +51,9 @@ const Blogs = () => {
                 link={item.link}
                 title={item.title}
                 tags={tags}
+                image={coverImageUrl}
                 handleClick={handleClick}
-                content="Medium is an open platform where readers find dynamic thinking, and where expert and undiscovered voices can share their writing on any topic."
+                content={subHeader}
               />
             </Grid>
           );
