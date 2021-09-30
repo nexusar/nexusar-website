@@ -1,0 +1,29 @@
+.leaderImage {
+  height: 320px;
+}
+
+.name {
+  font-size: 34px;
+  line-height: 1.20849;
+  letter-spacing: 0.015em;
+  font-family: 'SF Pro Display Regular';
+}
+
+.designation {
+  font-size: 28px;
+  line-height: 1.20849;
+  letter-spacing: 0.015em;
+  font-family: 'SF Pro Display Light';
+}
+
+@media screen and (max-width: 600px) {
+  .leaderImage {
+    height: 220px;
+  }
+  .designation {
+    font-size: 24px;
+  }
+  .name {
+    font-size: 28px;
+  }
+}

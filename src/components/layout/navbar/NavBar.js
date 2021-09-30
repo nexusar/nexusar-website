@@ -12,7 +12,7 @@ const Navbar = () => {
     });
   }, []);
 
-  const navTextItems = ['Store', 'Mac', 'iPad', 'iPhone', 'Watch', 'TV', 'Music', 'Support'];
+  const navTextItems = ['Home', 'About Us', 'Products', 'Solutions', 'Blogs', 'Support', 'Leadership', 'Pricing'];
 
   return (
     <header>
@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link to="/" className="nav-link nav-link-apple"></Link>
             </li>
             <li className="nav-item">
-              <Link to="/bag" className="nav-link nav-link-bag"></Link>
+              <Link to="/login" className="nav-link nav-link-login"></Link>
             </li>
           </ul>
 
@@ -40,7 +40,7 @@ const Navbar = () => {
               <input
                 className="nav-link nav-link-searchbar"
                 type="text"
-                placeholder="&#xF002; Search apple.com"
+                placeholder="&#xF002; &nbsp; Search NexuSAR"
                 style={{ fontFamily: 'Arial, FontAwesome' }}
               />
             </li>
@@ -49,14 +49,14 @@ const Navbar = () => {
             </li>
 
             {navTextItems.map((item) => (
-              <NavTextItem key={item} text={item} link={`/${item.toLowerCase()}`} />
+              <NavTextItem key={item} text={item} link={`/${item.toLowerCase().replace(/ /g, '-')}`} />
             ))}
 
             <li className="nav-item">
               <Link to="/search" className="nav-link nav-link-search"></Link>
             </li>
             <li className="nav-item">
-              <Link to="/bag" className="nav-link nav-link-bag"></Link>
+              <Link to="/login" className="nav-link nav-link-login"></Link>
             </li>
           </ul>
         </nav>

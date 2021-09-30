@@ -4,8 +4,8 @@ import { Box } from '@mui/system';
 import { Alert, Container, Grid, Snackbar } from '@mui/material';
 import Parser from 'rss-parser';
 import BlogCard from '../components/layout/blog-card/BlogCard';
-import JumpingDots from '../components/ui/jumping-dots/JumpingDots';
-import { blogHelper } from '../utils/blog-helper';
+import { blogHelper } from '../utils/helpers/blog-helper';
+import Loading from './Loading';
 
 const Blogs = () => {
   const [mediumFeedJSON, setMediumFeedJSON] = useState([]);
@@ -29,21 +29,15 @@ const Blogs = () => {
     setOpen(false);
   };
 
-  let blogComponent = (
-    <div className="centered">
-      <JumpingDots />
-      <h3>Loading</h3>
-    </div>
-  );
+  let blogComponent = <Loading />;
 
-  if (mediumFeedJSON.length) {
+  if (mediumFeedJSON.length)
     blogComponent = (
       <Grid container spacing={4}>
         {mediumFeedJSON.map((item) => {
           let tags = ['#medium', '#medium'];
           for (let i in [0, 1]) tags[i] = item.categories[i] ? item.categories[i] : tags[i];
           const { subHeader, coverImageUrl } = blogHelper(item);
-          console.log(subHeader, coverImageUrl);
 
           return (
             <Grid key={item.guid} item xs={12} sm={6} md={4}>
@@ -60,7 +54,6 @@ const Blogs = () => {
         })}
       </Grid>
     );
-  }
 
   return (
     <Fragment>
@@ -72,8 +65,15 @@ const Blogs = () => {
         </Container>
       </Box>
       <Container sx={{ py: 4 }}>{blogComponent}</Container>
-      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
-        <Alert style={{ fontSize: '14px', fontFamily: 'SF Pro Text Regular' }}>Link copied to clipboard</Alert>
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+      >
+        <Alert style={{ fontSize: '14px', fontFamily: 'SF Pro Text Regular' }}>
+          The link has been copied to clipboard
+        </Alert>
       </Snackbar>
     </Fragment>
   );

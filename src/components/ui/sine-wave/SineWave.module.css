@@ -1,0 +1,10 @@
+.canvas {
+  width: 480px !important;
+  height: 100px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .canvas {
+    width: 300px !important;
+  }
+}

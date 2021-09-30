@@ -67,9 +67,9 @@ header {
   font-size: 2rem;
   background: url('../../../assets/icons/search.svg') center no-repeat;
 }
-.nav-link-bag {
+.nav-link-login {
   font-size: 2rem;
-  background: url('../../../assets/icons/bag.svg') center no-repeat;
+  background: url('../../../assets/icons/login.svg') center no-repeat;
 }
 
 @media screen and (max-width: 767px) {
@@ -145,8 +145,8 @@ header {
     position: relative;
     z-index: 1500;
   }
-  .nav-link-bag {
-    width: 1.6rem;
+  .nav-link-login {
+    width: 1.8rem;
     height: 4.8rem;
     transition: opacity 3s;
   }
@@ -203,7 +203,7 @@ header {
     opacity: 1;
     visibility: visible;
   }
-  .active .nav-link-bag {
+  .active .nav-link-login {
     opacity: 0;
     transition: opacity 0.3s;
   }

@@ -1,4 +1,9 @@
 @font-face {
+  font-family: 'SF Pro Display Light';
+  src: url('../../assets/fonts/SFProDisplay/sf-pro-display_light.woff2') format('woff2');
+}
+
+@font-face {
   font-family: 'SF Pro Display Regular';
   src: url('../../assets/fonts/SFProDisplay/sf-pro-display_regular.woff') format('woff2');
 }

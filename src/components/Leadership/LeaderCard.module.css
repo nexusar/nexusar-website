@@ -1,0 +1,8 @@
+.cardTitle {
+  color: var(--updates-background-color);
+  padding: 5px 0px;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
+}

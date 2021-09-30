@@ -1,34 +1,50 @@
 import classes from './Intro.module.css';
-import { Link } from 'react-router-dom';
 import LocalNav from '../../components/layout/local-nav/LocalNav';
-import { Grid, Container } from '@mui/material';
+import { Grid, Container, IconButton } from '@mui/material';
 import SineWave from '../../components/ui/sine-wave/SineWave';
+import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
+import { useHistory } from 'react-router-dom';
 
 const Intro = () => {
+  const history = useHistory();
+
+  const clickHandler = () => {
+    history.push('/home');
+  };
+
+  const scrollHandler = (event) => {
+    console.log(event);
+    console.log('lol');
+  };
+
   return (
-    <div className={classes.introDarkContainer}>
-      <LocalNav title={'nexuSAR'} menuItems={['About Us', 'Overview']} buttonText={'Pricing Plans'} />
+    <div className={classes.introDarkContainer} onScroll={scrollHandler}>
+      <LocalNav title={'NexuSAR'} menuItems={[]} buttonText={'Home'} />
 
       <div className={classes.background}>
-        <Container class="centered">
-          <h1 className={classes.bigHeader}>Nexusar</h1>
-
+        <Container>
+          <h1 className={`${classes.bigHeader} centered`}>NexuSAR</h1>
           <div className={`${classes.fadeIn} centered`}>
-            <p>Secure the future with precision</p>
+            <p className={classes.descLine}>{`Secure the future with precision`.toUpperCase()}</p>
 
-            <Container py={4} class="centered">
-              <Grid item xs={11} sm={8} md={6}>
-                <p className={classes.descHeader} style={{ textAlign: 'center' }}>
-                  At Nexusar we believe that the future can be secured by precisely predicting mishappenings and taking
-                  actions promptly.
-                </p>
+            <Container sx={{ pt: 4 }}>
+              <Grid container>
+                <Grid item md={2} />
+                <Grid item xs={12} md={8}>
+                  <p className={classes.descHeader} style={{ textAlign: 'center' }}>
+                    At NexuSAR we believe that the future lies in precisely predicting mishappenings and taking actions
+                    promptly.
+                  </p>
+                </Grid>
+                <Grid item md={2} />
               </Grid>
             </Container>
 
             <SineWave />
-            <button className="button">
-              <Link to="/home">Click here to discover more</Link>
-            </button>
+            <p>Discover more</p>
+            <IconButton onClick={clickHandler} className={classes.downwardIcon}>
+              <ArrowDownwardRoundedIcon style={{ fontSize: '3em', color: 'white' }} />
+            </IconButton>
           </div>
         </Container>
       </div>

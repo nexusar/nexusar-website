@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import SineWaves from 'sine-waves';
+import classes from './SineWave.module.css';
 
 const SineWave = () => {
   useEffect(() => {
@@ -12,20 +13,20 @@ const SineWave = () => {
         {
           timeModifier: 1,
           lineWidth: 1,
-          amplitude: -10.0,
-          wavelength: 20.0,
-        },
-        {
-          timeModifier: 0.5,
-          lineWidth: 1,
           amplitude: -15.0,
           wavelength: 30.0,
         },
         {
-          timeModifier: 0.25,
-          lineWidth: 2,
+          timeModifier: 0.5,
+          lineWidth: 1,
           amplitude: -20.0,
           wavelength: 40.0,
+        },
+        {
+          timeModifier: 0.25,
+          lineWidth: 2,
+          amplitude: -25.0,
+          wavelength: 50.0,
         },
       ],
 
@@ -50,6 +51,6 @@ const SineWave = () => {
     });
   }, []);
 
-  return <canvas id="waves"></canvas>;
+  return <canvas id="waves" className={classes.canvas}></canvas>;
 };
 export default SineWave;

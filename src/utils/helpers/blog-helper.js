@@ -1,6 +1,6 @@
-import { detectImageUrl } from './validations/detect-image-url';
-import { detectSentence } from './validations/detect-sentence';
-import medium from '../../src/assets/images/medium.png';
+import { detectImageUrl } from '../validations/detect-image-url';
+import { detectSentence } from '../validations/detect-sentence';
+import medium from '../../../src/assets/images/medium.png';
 
 export const blogHelper = (feedItem) => {
   const contentEncoded = feedItem['content:encoded'];

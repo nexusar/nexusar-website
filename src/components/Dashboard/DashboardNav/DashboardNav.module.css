@@ -1,0 +1,6 @@
+.container {
+  padding: 32px 0px;
+  display: flex !important;
+  background-color: white;
+  overflow-x: auto;
+}

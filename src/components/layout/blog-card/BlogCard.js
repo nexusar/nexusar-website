@@ -31,7 +31,7 @@ const BlogCard = (props) => {
   return (
     <Card>
       <CardActionArea onClick={cardClickHandler}>
-        <CardMedia component="img" height="200px" image={image} alt="green iguana" />
+        <CardMedia component="img" height="200px" image={image} alt="medium-url" />
         <CardContent>
           <div style={{ height: '220px' }}>
             <h1 className={classes.cardTitle}>{blogTitle}</h1>

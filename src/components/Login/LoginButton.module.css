@@ -1,0 +1,28 @@
+.loginButton {
+  padding: 20px;
+  min-width: 380px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px 0 rgb(28 29 31 / 24%), 0 0 2px 0 rgb(28 29 31 / 12%);
+  font-family: 'SF Pro Text SemiBold';
+}
+
+.loginButtonLight {
+  background-color: white;
+  border: 1px solid #d1d7dc;
+}
+
+.loginButtonDark {
+  background-color: var(--text-color);
+  border: 1px solid #3c3c3d;
+  color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .loginButton {
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
