@@ -1,15 +1,13 @@
 import { Fragment } from 'react';
-import { Box } from '@mui/system';
-import JumpingDots from '../components/ui/jumping-dots/JumpingDots';
+import { Container } from '@mui/material';
+import IOSSpinner from '../components/ui/ios-spinner/IOSSpinner';
 
 const Loading = () => {
   return (
     <Fragment>
-      <Box sx={{ height: 100 }} />
-      <div className="centered">
-        <JumpingDots padding="20" />
-        <p>Loading</p>
-      </div>
+      <Container sx={{ pt: 16 }}>
+        <IOSSpinner />
+      </Container>
     </Fragment>
   );
 };

@@ -4,6 +4,7 @@ import { Grid, Container, IconButton } from '@mui/material';
 import SineWave from '../../components/ui/sine-wave/SineWave';
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import { useHistory } from 'react-router-dom';
+import backgroundVideo from '../../assets/videos/background-video.mp4';
 
 const Intro = () => {
   const history = useHistory();
@@ -22,6 +23,9 @@ const Intro = () => {
       <LocalNav title={'NexuSAR'} menuItems={[]} buttonText={'Home'} />
 
       <div className={classes.background}>
+        {/* <video id="background-video" autoPlay loop muted>
+          <source src={`${backgroundVideo}#t=0,44`} type="video/mp4" />
+        </video> */}
         <Container>
           <h1 className={`${classes.bigHeader} centered`}>NexuSAR</h1>
           <div className={`${classes.fadeIn} centered`}>

@@ -37,6 +37,38 @@
   background: #007fff;
 }
 
+.form-button {
+  all: unset;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 980px;
+  background: #0071e3;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.17648;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+  min-width: 28px;
+  padding: 18px 31px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  border-radius: 12px;
+  white-space: normal;
+  display: inline-block;
+}
+
+.form-button:focus {
+  box-shadow: 0 0 0 4px rgb(0 125 250 / 60%);
+}
+
+.form-button:disabled {
+  background: #0071e3af;
+}
+
 .centered {
   margin: 3rem auto;
   flex-direction: column;
@@ -52,4 +84,16 @@ a {
 
 #waves {
   width: 250px;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
 }

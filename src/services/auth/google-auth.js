@@ -7,7 +7,7 @@ const googleAuth = async () => {
   try {
     const res = await auth.signInWithPopup(googleProvider);
     const user = res.user;
-    console.log(user);
+    if (user) console.log(user);
 
     // TODO: Handle the database queries later on..
     // const query = await db.collection('users').where('uid', '==', user.uid).get();
@@ -19,7 +19,6 @@ const googleAuth = async () => {
     //     email: user.email,
     //   });
     // }
-    
   } catch (err) {
     console.error(err);
   }
