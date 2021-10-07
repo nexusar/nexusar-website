@@ -10,7 +10,8 @@ import AvatarImage from '../ui/avatar-image/AvatarImage';
 import InputField from '../ui/input-field/InputField';
 import InputArea from '../ui/input-area/InputArea';
 import Loading from '../../pages/Loading.js';
-import DashboardSnackbar from './DashboardSnackbar.js';
+import SuccessSnackbar from './SuccessSnackbar.js';
+import InputFile from '../ui/input-file/InputFile.js';
 
 const isNotEmpty = (value) => value.trim() !== '';
 
@@ -26,6 +27,21 @@ const PersonalInfo = () => {
     if (!user) history.replace('/login');
     if (user) getEmployeePersonalInfo(user.uid, setPersonalData);
   }, [user, loading, error, history]);
+
+  const [imageSrc, setImageSrc] = useState('');
+  const [adhaarValue, setAdhaarValue] = useState('');
+  const [PANValue, setPANValue] = useState('');
+  let adhaarIsValid = false;
+  let PANIsValid = false;
+
+  useEffect(() => {
+    setImageSrc(personalData.profilePictureValue);
+    setAdhaarValue(personalData.adhaarValue);
+    setPANValue(personalData.PANValue);
+  }, [personalData.profilePictureValue, personalData.adhaarValue, personalData.PANValue]);
+
+  if (adhaarValue) adhaarIsValid = isNotEmpty(adhaarValue);
+  if (PANValue) PANIsValid = isNotEmpty(PANValue);
 
   const {
     value: firstNameValue,
@@ -127,24 +143,6 @@ const PersonalInfo = () => {
   } = useInput(isNotEmpty, personalData.adhaarNumberValue);
 
   const {
-    value: adhaarValue,
-    isValid: adhaarIsValid,
-    hasError: adhaarHasError,
-    valueChangeHandler: adhaarChangeHandler,
-    inputBlurHandler: adhaarBlurHandler,
-    reset: resetAdhaar,
-  } = useInput(isNotEmpty);
-
-  const {
-    value: PANValue,
-    isValid: PANIsValid,
-    hasError: PANHasError,
-    valueChangeHandler: PANChangeHandler,
-    inputBlurHandler: PANBlurHandler,
-    reset: resetPAN,
-  } = useInput(isNotEmpty);
-
-  const {
     value: reference1Value,
     isValid: reference1IsValid,
     hasError: reference1HasError,
@@ -183,8 +181,8 @@ const PersonalInfo = () => {
     stateIsValid &&
     describeIsValid &&
     adhaarNumberIsValid &&
-    // adhaarIsValid &&
-    // PANIsValid &&
+    adhaarIsValid &&
+    PANIsValid &&
     reference1IsValid &&
     reference2IsValid &&
     modeOfTransportIsValid;
@@ -225,8 +223,6 @@ const PersonalInfo = () => {
     resetState();
     resetDescribe();
     resetAdhaarNumber();
-    resetAdhaar();
-    resetPAN();
     resetReference1();
     resetReference2();
     resetModeOfTransport();
@@ -263,7 +259,10 @@ const PersonalInfo = () => {
           <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }} sx={{ display: 'flex', justifyContent: 'center' }}>
             <AvatarImage
               alt="AB Satyaprakash"
-              src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg"
+              src={imageSrc}
+              folderName={user.uid}
+              setImageSrc={setImageSrc}
+              collectionName="EmployeePersonalInfo"
             />
           </Grid>
         </Grid>
@@ -379,25 +378,25 @@ const PersonalInfo = () => {
 
         <Grid container spacing="12">
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload PAN (in PDF format)"
-              type="file"
-              valueChangeHandler={PANChangeHandler}
-              inputBlurHandler={PANBlurHandler}
-              hasError={PANHasError}
               value={PANValue}
-              placeholder="Please upload both sides of PAN Card as a single PDF file"
+              folderName={user.uid}
+              setValue={setPANValue}
+              placeholder="Upload both sides of PAN Card"
+              field="PANValue"
+              collectionName="EmployeePersonalInfo"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload Adhaar (in PDF format)"
-              type="file"
-              valueChangeHandler={adhaarChangeHandler}
-              inputBlurHandler={adhaarBlurHandler}
-              hasError={adhaarHasError}
               value={adhaarValue}
-              placeholder="Please upload both sides of Adhaar Card as a single PDF file"
+              folderName={user.uid}
+              setValue={setAdhaarValue}
+              placeholder="Upload both sides of Adhaar Card"
+              field="adhaarValue"
+              collectionName="EmployeePersonalInfo"
             />
           </Grid>
         </Grid>
@@ -450,7 +449,7 @@ const PersonalInfo = () => {
           </Grid>
         </Grid>
       </form>
-      <DashboardSnackbar open={open} setOpen={setOpen} />
+      <SuccessSnackbar open={open} setOpen={setOpen} />
     </Container>
   );
 };

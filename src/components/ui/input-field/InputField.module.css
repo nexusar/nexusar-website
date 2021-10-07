@@ -9,6 +9,8 @@
   text-overflow: ellipsis;
   padding: 15px;
   margin-top: 10px;
+  font-family: 'SF Pro Text Regular';
+  width: 100%;
 }
 
 .inputField::placeholder {

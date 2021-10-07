@@ -12,9 +12,14 @@ const EmployeeCard = (props) => {
     getEmployeePersonalInfo(uid, setPersonalData);
   }, [uid]);
 
-  let name;
-  if (personalData) name = personalData.firstNameValue + ' ' + personalData.lastNameValue;
+  let name = 'Personal Details not filled';
   const defaultImage = 'https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg';
+  let image = defaultImage;
+
+  if (personalData) {
+    name = personalData.firstNameValue + ' ' + personalData.lastNameValue;
+    image = personalData.profilePictureValue;
+  }
 
   const clickHandler = () => {
     setShowSupervisedEmployee(true);
@@ -37,7 +42,7 @@ const EmployeeCard = (props) => {
       <CardMedia
         component="img"
         sx={{ width: 120, height: 'inherit' }}
-        image={defaultImage}
+        image={image}
         alt="Live from space album cover"
       />
     </Card>

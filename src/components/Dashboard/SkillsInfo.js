@@ -10,7 +10,7 @@ import Loading from '../../pages/Loading';
 import useStars from '../../hooks/use-stars.js';
 import StarRatingField from '../ui/star-rating/StarRatingField.js';
 import Creatable from 'react-select/creatable';
-import DashboardSnackbar from './DashboardSnackbar';
+import SuccessSnackbar from './SuccessSnackbar';
 import { getEmployeeSkillInfo, postEmployeeSkillInfo } from '../../services/firestore-queries.js';
 
 const SkillsInfo = () => {
@@ -104,21 +104,21 @@ const SkillsInfo = () => {
       <form onSubmit={formSubmitHandler}>
         <Grid container sx={{ py: 1 }}>
           <Grid item xs={5}>
-            <p>{arcGISRating.label}</p>
+            <p>Arc-GIS experience level</p>
           </Grid>
           <StarRatingField rating={arcGISRating.value} ratingChangeHandler={arcGISRatingChangeHandler} />
         </Grid>
 
         <Grid container sx={{ py: 1 }}>
           <Grid item xs={5}>
-            <p>{enviRating.label}</p>
+            <p>ENVI experience level</p>
           </Grid>
           <StarRatingField rating={enviRating.value} ratingChangeHandler={enviRatingChangeHandler} />
         </Grid>
 
         <Grid container sx={{ py: 1 }}>
           <Grid item xs={5}>
-            <p>{snapRating.label}</p>
+            <p>SNAP experience level</p>
           </Grid>
           <StarRatingField rating={snapRating.value} ratingChangeHandler={snapRatingChangeHandler} />
         </Grid>
@@ -203,7 +203,7 @@ const SkillsInfo = () => {
           </Grid>
         </Grid>
       </form>
-      <DashboardSnackbar open={open} setOpen={setOpen} />
+      <SuccessSnackbar open={open} setOpen={setOpen} />
     </Container>
   );
 };

@@ -1,27 +1,26 @@
-import { Container, Divider, Grid } from '@mui/material';
-import { Box } from '@mui/system';
-import { useState, useEffect, Fragment } from 'react';
+import { Fragment, useState } from 'react';
+import { Container } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { getEmployeePersonalInfo, getEmployeeBankInfo } from '../../../services/firestore-queries';
+import html2pdf from 'html2pdf.js';
+import EmployeeAcademic from './EmployeeAcademic';
+import EmployeePersonal from './EmployeePersonal';
+import EmployeeWork from './EmployeeWork';
+import EmployeeBank from './EmployeeBank';
+import EmployeeSkills from './EmployeeSkills';
+import SuccessSnackbar from '../SuccessSnackbar';
 
 const EmployeeComplete = (props) => {
   const { uid, setShowSupervisedEmployee } = props;
-
-  const [personalData, setPersonalData] = useState('');
-  const [bankData, setBankData] = useState('');
-
-  useEffect(() => {
-    getEmployeePersonalInfo(uid, setPersonalData);
-    getEmployeeBankInfo(uid, setBankData);
-  }, [uid]);
-
-  const dataList = [
-    { label: 'Personal Details', variable: personalData },
-    { label: 'Bank Details', variable: bankData },
-  ];
+  const [open, setOpen] = useState(false);
 
   const goBackClickHandler = () => {
     setShowSupervisedEmployee(false);
+  };
+
+  const printEmployeeDetails = () => {
+    setOpen(true);
+    const element = document.getElementById('employee-complete');
+    html2pdf(element);
   };
 
   return (
@@ -30,33 +29,19 @@ const EmployeeComplete = (props) => {
         <Link to="#" className="button" style={{ marginRight: '10px' }} onClick={goBackClickHandler}>
           Go Back
         </Link>
-        <Link to="#" className="button" style={{ marginLeft: '10px' }}>
+        <Link to="#" className="button" style={{ marginLeft: '10px' }} onClick={printEmployeeDetails}>
           Print Details
         </Link>
-        {dataList.map((data) => (
-          <Box key={data.label} sx={{ py: 2 }}>
-            <h4>{data.label}</h4>
-            <Divider light style={{ margin: '8px 0' }} />
-            <Grid container>
-              {data.variable &&
-                Object.entries(data.variable).map(([key, value]) => {
-                  if (value)
-                    return (
-                      <Fragment key={key}>
-                        <Grid item xs={5}>
-                          {key}
-                        </Grid>
-                        <Grid item xs={7}>
-                          {value}
-                        </Grid>
-                      </Fragment>
-                    );
-                  else return <Fragment key={key} />;
-                })}
-            </Grid>
-          </Box>
-        ))}
       </Container>
+      <Container id="employee-complete">
+        <h3 style={{ paddingTop: '16px' }}>Supervised Employee Details</h3>
+        <EmployeePersonal uid={uid} />
+        <EmployeeAcademic uid={uid} />
+        <EmployeeWork uid={uid} />
+        <EmployeeSkills uid={uid} />
+        <EmployeeBank uid={uid} />
+      </Container>
+      <SuccessSnackbar open={open} setOpen={setOpen} info="Generating a PDF file for you!" />
     </Fragment>
   );
 };

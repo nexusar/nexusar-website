@@ -8,7 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useState, useEffect } from 'react';
 import { auth } from '../../services/firebase';
 import Loading from '../../pages/Loading';
-import DashboardSnackbar from './DashboardSnackbar';
+import SuccessSnackbar from './SuccessSnackbar';
 import {
   getEmployeeProprietaryWorkInfo,
   getEmployeeWorkInfo,
@@ -311,7 +311,7 @@ const WorkInfo = () => {
           </Grid>
         </Grid>
       </form>
-      <DashboardSnackbar open={open} setOpen={setOpen} />
+      <SuccessSnackbar open={open} setOpen={setOpen} />
     </Container>
   );
 };

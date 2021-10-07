@@ -13,19 +13,15 @@ const Intro = () => {
     history.push('/home');
   };
 
-  const scrollHandler = (event) => {
-    console.log(event);
-    console.log('lol');
-  };
-
   return (
-    <div className={classes.introDarkContainer} onScroll={scrollHandler}>
+    <div className={classes.introDarkContainer}>
       <LocalNav title={'NexuSAR'} menuItems={[]} buttonText={'Home'} />
 
       <div className={classes.background}>
-        {/* <video id="background-video" autoPlay loop muted>
-          <source src={`${backgroundVideo}#t=0,44`} type="video/mp4" />
-        </video> */}
+        <video autoPlay muted loop className={classes.videoBackground}>
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+
         <Container>
           <h1 className={`${classes.bigHeader} centered`}>NexuSAR</h1>
           <div className={`${classes.fadeIn} centered`}>

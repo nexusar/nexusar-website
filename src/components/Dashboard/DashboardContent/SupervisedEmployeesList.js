@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Grid } from '@mui/material';
+import { Fragment, useEffect, useState } from 'react';
+import { Grid, Container, Divider } from '@mui/material';
 import { useHistory } from 'react-router';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../services/firebase';
@@ -20,22 +20,27 @@ const SupervisedEmployeesList = (props) => {
     if (user) getSupervisedEmployeesList(user, setSupervisedEmployees);
   }, [user, loading, error, history]);
 
-  console.log(supervisedEmployees);
-
   return (
-    <Grid container spacing="16">
-      {supervisedEmployees &&
-        supervisedEmployees.map((employee) => (
-          <Grid key={employee.uid} item xs={12} sm={6}>
-            <EmployeeCard
-              uid={employee.uid}
-              position={employee.Position}
-              setShowSupervisedEmployee={setShowSupervisedEmployee}
-              setSupervisedUID={setSupervisedUID}
-            />
+    <Fragment>
+      {supervisedEmployees.length !== 0 && (
+        <Container>
+          <h3>People you manage</h3>
+          <Divider light style={{ magrinTop: '8px', marginBottom: '16px' }} />
+          <Grid container spacing="16">
+            {supervisedEmployees.map((employee) => (
+              <Grid key={employee.uid} item xs={12} sm={6}>
+                <EmployeeCard
+                  uid={employee.uid}
+                  position={employee.Position}
+                  setShowSupervisedEmployee={setShowSupervisedEmployee}
+                  setSupervisedUID={setSupervisedUID}
+                />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-    </Grid>
+        </Container>
+      )}
+    </Fragment>
   );
 };
 

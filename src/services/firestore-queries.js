@@ -1,4 +1,4 @@
-import { db } from '../services/firebase.js';
+import { db, storage } from '../services/firebase.js';
 
 // Add uid for a valid employee to employee database
 const addEmployeeUserIDToDB = (user) => {
@@ -22,7 +22,7 @@ export const checkEmployeeExists = (user, setIsEmployee) => {
 
 // Employee Personal Information
 export const postEmployeePersonalInfo = (uid, formData) => {
-  db.collection('EmployeePersonalInfo').doc(uid).set(formData);
+  db.collection('EmployeePersonalInfo').doc(uid).update(formData);
 };
 
 export const getEmployeePersonalInfo = (uid, setPersonalData) => {
@@ -125,4 +125,41 @@ export const getSupervisedEmployeesList = (user, setSupervisedEmployees) => {
     .catch((error) => {
       alert(`The following error was thrown: ${error}. Please contact support.`);
     });
+};
+
+// Upload a file to Firebase Storage and get back a link - request file name and folder name (use UID)
+export const uploadFileToStorage = (
+  field,
+  file,
+  fileName,
+  folderName,
+  setUploading,
+  setFileSrc,
+  collectionName,
+  setOpen
+) => {
+  if (file) {
+    setUploading(true);
+    setFileSrc('');
+    const storageRef = storage.ref();
+    const imageRef = storageRef.child(`${folderName}/${fileName}.${file.name.split('.').pop()}`);
+    imageRef
+      .put(file)
+      .then(() => {
+        imageRef.getDownloadURL().then((url) => {
+          const uid = folderName;
+          db.collection(collectionName)
+            .doc(uid)
+            .update({ [field]: url });
+          setFileSrc(url);
+          setUploading(false);
+          if (setOpen) setOpen(true);
+        });
+      })
+      .catch((error) => {
+        alert(`The following error was thrown: ${error}. Please contact support.`);
+      });
+  } else {
+    alert(`Please select a file first`);
+  }
 };

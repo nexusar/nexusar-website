@@ -6,9 +6,10 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../services/firebase';
 import useInput from '../../hooks/use-input';
 import InputField from '../ui/input-field/InputField';
+import InputFile from '../ui/input-file/InputFile';
 import Loading from '../../pages/Loading';
 import { getEmployeeAcademicInfo, postEmployeeAcademicInfo } from '../../services/firestore-queries';
-import DashboardSnackbar from './DashboardSnackbar';
+import SuccessSnackbar from './SuccessSnackbar';
 
 const isNotEmpty = (value) => value.trim() !== '';
 
@@ -25,14 +26,28 @@ const AcademicInfo = () => {
     if (user) getEmployeeAcademicInfo(user.uid, setAcademicData);
   }, [user, loading, error, history]);
 
-  const {
-    value: resumeValue,
-    isValid: resumeIsValid,
-    hasError: resumeHasError,
-    valueChangeHandler: resumeChangeHandler,
-    inputBlurHandler: resumeBlurHandler,
-    reset: resetResume,
-  } = useInput(isNotEmpty);
+  const [resumeValue, setResumeValue] = useState('');
+  const [UGGradeSheetValue, setUGGradeSheetValue] = useState('');
+  const [UGDegreeSheetValue, setUGDegreeSheetValue] = useState('');
+  const [PGGradeSheetValue, setPGGradeSheetValue] = useState('');
+  const [PGDegreeSheetValue, setPGDegreeSheetValue] = useState('');
+  let resumeIsValid = false;
+
+  useEffect(() => {
+    setResumeValue(academicData.resumeValue);
+    setUGGradeSheetValue(academicData.UGGradeSheetValue);
+    setUGDegreeSheetValue(academicData.UGDegreeSheetValue);
+    setPGGradeSheetValue(academicData.PGGradeSheetValue);
+    setPGDegreeSheetValue(academicData.PGDegreeSheetValue);
+  }, [
+    academicData.resumeValue,
+    academicData.UGGradeSheetValue,
+    academicData.UGDegreeSheetValue,
+    academicData.PGGradeSheetValue,
+    academicData.PGDegreeSheetValue,
+  ]);
+
+  if (resumeValue) resumeIsValid = isNotEmpty(resumeValue);
 
   const {
     value: linkedinProfileValue,
@@ -80,24 +95,6 @@ const AcademicInfo = () => {
   } = useInput(isNotEmpty, academicData.UGCGPAValue);
 
   const {
-    value: UGGradeSheetValue,
-    isValid: UGGradeSheetIsValid,
-    hasError: UGGradeSheetHasError,
-    valueChangeHandler: UGGradeSheetChangeHandler,
-    inputBlurHandler: UGGradeSheetBlurHandler,
-    reset: resetUGGradeSheet,
-  } = useInput(isNotEmpty);
-
-  const {
-    value: UGDegreeSheetValue,
-    isValid: UGDegreeSheetIsValid,
-    hasError: UGDegreeSheetHasError,
-    valueChangeHandler: UGDegreeSheetChangeHandler,
-    inputBlurHandler: UGDegreeSheetBlurHandler,
-    reset: resetUGDegreeSheet,
-  } = useInput(isNotEmpty);
-
-  const {
     value: PGCollegeNameValue,
     isValid: PGCollegeNameIsValid,
     hasError: PGCollegeNameHasError,
@@ -115,38 +112,15 @@ const AcademicInfo = () => {
     reset: resetPGCGPA,
   } = useInput(isNotEmpty, academicData.PGCGPAValue);
 
-  const {
-    value: PGGradeSheetValue,
-    isValid: PGGradeSheetIsValid,
-    hasError: PGGradeSheetHasError,
-    valueChangeHandler: PGGradeSheetChangeHandler,
-    inputBlurHandler: PGGradeSheetBlurHandler,
-    reset: resetPGGradeSheet,
-  } = useInput(isNotEmpty);
-
-  const {
-    value: PGDegreeSheetValue,
-    isValid: PGDegreeSheetIsValid,
-    hasError: PGDegreeSheetHasError,
-    valueChangeHandler: PGDegreeSheetChangeHandler,
-    inputBlurHandler: PGDegreeSheetBlurHandler,
-    reset: resetPGDegreeSheet,
-  } = useInput(isNotEmpty);
-
   const formIsValid =
-    // resumeIsValid &&
+    resumeIsValid &&
     linkedinProfileIsValid &&
     emailAddressIsValid &&
     officalEmailAddressIsValid &&
     UGCollegeNameIsValid &&
     UGCGPAIsValid &&
-    // UGGradeSheetIsValid &&
-    // UGDegreeSheetIsValid &&
     PGCollegeNameIsValid &&
     PGCGPAIsValid;
-  // &&
-  // PGGradeSheetIsValid &&
-  // PGDegreeSheetIsValid;
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
@@ -170,18 +144,13 @@ const AcademicInfo = () => {
     postEmployeeAcademicInfo(user.uid, formData);
     setOpen(true);
 
-    resetResume();
     resetLinkedinProfile();
     resetEmailAddress();
     resetOfficalEmailAddress();
     resetUGCollegeName();
     resetUGCGPA();
-    resetUGGradeSheet();
-    resetUGDegreeSheet();
     resetPGCollegeName();
     resetPGCGPA();
-    resetPGGradeSheet();
-    resetPGDegreeSheet();
   };
 
   return (
@@ -193,14 +162,14 @@ const AcademicInfo = () => {
       <form onSubmit={formSubmitHandler}>
         <Grid container spacing="12">
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload Resume (in PDF format)"
-              type="file"
-              valueChangeHandler={resumeChangeHandler}
-              inputBlurHandler={resumeBlurHandler}
-              hasError={resumeHasError}
               value={resumeValue}
-              placeholder="Resume.pdf"
+              folderName={user.uid}
+              setValue={setResumeValue}
+              placeholder="Upload your Resume"
+              field="resumeValue"
+              collectionName="EmployeeAcademicInfo"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -268,25 +237,25 @@ const AcademicInfo = () => {
 
         <Grid container spacing="12">
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload UG Gradesheet (in PDF Format)"
-              type="file"
-              valueChangeHandler={UGGradeSheetChangeHandler}
-              inputBlurHandler={UGGradeSheetBlurHandler}
-              hasError={UGGradeSheetHasError}
               value={UGGradeSheetValue}
-              placeholder=""
+              folderName={user.uid}
+              setValue={setUGGradeSheetValue}
+              placeholder="Upload your UG Gradesheet"
+              field="UGGradeSheetValue"
+              collectionName="EmployeeAcademicInfo"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload UG Degree (in PDF Format)"
-              type="file"
-              valueChangeHandler={UGDegreeSheetChangeHandler}
-              inputBlurHandler={UGDegreeSheetBlurHandler}
-              hasError={UGDegreeSheetHasError}
               value={UGDegreeSheetValue}
-              placeholder=""
+              folderName={user.uid}
+              setValue={setUGDegreeSheetValue}
+              placeholder="Upload your UG Degreesheet"
+              field="UGDegreeSheetValue"
+              collectionName="EmployeeAcademicInfo"
             />
           </Grid>
         </Grid>
@@ -318,28 +287,29 @@ const AcademicInfo = () => {
 
         <Grid container spacing="12">
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload PG Gradesheet (in PDF Format)"
-              type="file"
-              valueChangeHandler={PGGradeSheetChangeHandler}
-              inputBlurHandler={PGGradeSheetBlurHandler}
-              hasError={PGGradeSheetHasError}
               value={PGGradeSheetValue}
-              placeholder=""
+              folderName={user.uid}
+              setValue={setPGGradeSheetValue}
+              placeholder="Upload your PG Gradesheet"
+              field="PGGradeSheetValue"
+              collectionName="EmployeeAcademicInfo"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <InputField
+            <InputFile
               label="Upload PG Degree (in PDF Format)"
-              type="file"
-              valueChangeHandler={PGDegreeSheetChangeHandler}
-              inputBlurHandler={PGDegreeSheetBlurHandler}
-              hasError={PGDegreeSheetHasError}
               value={PGDegreeSheetValue}
-              placeholder=""
+              folderName={user.uid}
+              setValue={setPGDegreeSheetValue}
+              placeholder="Upload your PG Degreesheet"
+              field="PGDegreeSheetValue"
+              collectionName="EmployeeAcademicInfo"
             />
           </Grid>
         </Grid>
+
         <Grid container sx={{ py: 4 }}>
           <Grid item xs={12} sm={4}>
             <button className="form-button" type="submit" disabled={!formIsValid}>
@@ -348,7 +318,7 @@ const AcademicInfo = () => {
           </Grid>
         </Grid>
       </form>
-      <DashboardSnackbar open={open} setOpen={setOpen} />
+      <SuccessSnackbar open={open} setOpen={setOpen} />
     </Container>
   );
 };

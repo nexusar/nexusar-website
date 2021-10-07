@@ -1,0 +1,38 @@
+.inputField {
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
+  font-size: 17px;
+  border-color: #d2d2d7;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  text-overflow: ellipsis;
+  padding: 15px;
+  font-family: 'SF Pro Text Regular';
+  width: 100%;
+}
+
+.inputFile {
+  display: none;
+}
+
+.inputField::placeholder {
+  font-family: 'SF Pro Text Regular';
+}
+
+.inputField:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 4px rgb(0 125 250 / 60%);
+  outline: none;
+}
+
+.iconButton {
+  border-radius: 8px !important;
+  margin-left: 16px !important;
+  color: white !important;
+  background-color: #3c3c3daf !important;
+}
+
+.iconButton:hover {
+  opacity: 0.8;
+}

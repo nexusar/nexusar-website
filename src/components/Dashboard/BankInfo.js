@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../services/firebase';
 import InputField from '../ui/input-field/InputField';
 import { getEmployeeBankInfo, postEmployeeBankInfo } from '../../services/firestore-queries';
-import DashboardSnackbar from './DashboardSnackbar';
+import SuccessSnackbar from './SuccessSnackbar';
 import Loading from '../../pages/Loading';
 
 const isNotEmpty = (value) => value.trim() !== '';
@@ -128,7 +128,7 @@ const BankInfo = () => {
           </Grid>
         </Grid>
       </form>
-      <DashboardSnackbar open={open} setOpen={setOpen} />
+      <SuccessSnackbar open={open} setOpen={setOpen} />
     </Container>
   );
 };

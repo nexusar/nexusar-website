@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { auth } from '../firebase';
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -6,8 +6,8 @@ const googleProvider = new firebase.auth.GoogleAuthProvider();
 const googleAuth = async () => {
   try {
     const res = await auth.signInWithPopup(googleProvider);
+    // eslint-disable-next-line no-unused-vars
     const user = res.user;
-    if (user) console.log(user);
 
     // TODO: Handle the database queries later on..
     // const query = await db.collection('users').where('uid', '==', user.uid).get();
