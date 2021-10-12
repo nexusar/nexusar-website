@@ -13,6 +13,7 @@ import Leader from '../pages/Leadership/Leader';
 import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Login/Dashboard';
 import Loading from '../pages/Loading';
+import Admin from '../pages/Admin/Admin';
 
 const Routes = () => {
   const location = useLocation();
@@ -67,6 +68,10 @@ const Routes = () => {
         </Route>
         <Route path="/dashboard">
           <Dashboard />
+        </Route>
+
+        <Route path="/admin">
+          <Admin />
         </Route>
 
         <Route path="*" exact>

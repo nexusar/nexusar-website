@@ -4,7 +4,8 @@ import { Grid, Container, IconButton } from '@mui/material';
 import SineWave from '../../components/ui/sine-wave/SineWave';
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import { useHistory } from 'react-router-dom';
-import backgroundVideo from '../../assets/videos/background-video.mp4';
+
+const backgroundVideo = 'https://drive.google.com/uc?export=download&id=1JRS7aLYXHeZ54JPXFsc3KxqQ4gTAPl9N';
 
 const Intro = () => {
   const history = useHistory();
@@ -27,7 +28,7 @@ const Intro = () => {
           <div className={`${classes.fadeIn} centered`}>
             <p className={classes.descLine}>{`Secure the future with precision`.toUpperCase()}</p>
 
-            <Container sx={{ pt: 4 }}>
+            <Container sx={{ py: 4 }}>
               <Grid container>
                 <Grid item md={2} />
                 <Grid item xs={12} md={8}>
@@ -41,10 +42,12 @@ const Intro = () => {
             </Container>
 
             <SineWave />
+
             <p>Discover more</p>
             <IconButton onClick={clickHandler} className={classes.downwardIcon}>
               <ArrowDownwardRoundedIcon style={{ fontSize: '3em', color: 'white' }} />
             </IconButton>
+
           </div>
         </Container>
       </div>

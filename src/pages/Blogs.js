@@ -14,7 +14,7 @@ const Blogs = () => {
   useEffect(() => {
     const parser = new Parser();
     (async () => {
-      let feed = await parser.parseURL('https://secret-eyrie-32984.herokuapp.com/medium.com/feed/@absatyaprakash01/');
+      let feed = await parser.parseURL('https://rocky-retreat-29330.herokuapp.com/medium.com/feed/@absatyaprakash01/');
       setMediumFeedJSON(feed.items);
     })();
   }, []);
