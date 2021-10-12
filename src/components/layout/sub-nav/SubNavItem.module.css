@@ -1,0 +1,18 @@
+.item {
+  text-align: center;
+  display: 'table-header-group';
+}
+
+.item:hover {
+  color: #0071e3;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 767px) {
+  .item {
+    padding: 0 36px !important;
+  }
+}

@@ -1,7 +1,6 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import Intro from '../pages/Intro/Intro';
-import Splash from '../pages/Splash';
 import Home from '../pages/Home';
 import { Fragment } from 'react';
 import Navbar from '../components/layout/navbar/NavBar';
@@ -14,6 +13,7 @@ import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Login/Dashboard';
 import Loading from '../pages/Loading';
 import Admin from '../pages/Admin/Admin';
+import Solutions from '../pages/Solutions';
 
 const Routes = () => {
   const location = useLocation();
@@ -44,8 +44,8 @@ const Routes = () => {
           <Home />
         </Route>
 
-        <Route path="/splash">
-          <Splash />
+        <Route path="/solutions">
+          <Solutions />
         </Route>
 
         <Route path="/apply">
