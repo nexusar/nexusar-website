@@ -1,0 +1,40 @@
+.card {
+  background: linear-gradient(to right top, #194189 0%, #3b4980 25%, #8738a7 100%);
+  color: white !important;
+  border-radius: 25px !important;
+  overflow: hidden;
+}
+
+.bigHeader {
+  font-size: 80px;
+  line-height: 1.05;
+  font-family: 'SF Pro Display Heavy';
+}
+
+.button {
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100px;
+  padding: 9px 17px;
+  white-space: normal;
+}
+
+.image {
+  content: url('https://www.apple.com/v/macbook-air/k/images/overview/processor__gb8d1ide5126_medium.png');
+}
+
+@media screen and (max-width: 768px) {
+  .bigHeader {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .image {
+    content: url('https://www.apple.com/v/macbook-air/k/images/overview/processor__gb8d1ide5126_small.png');
+  }
+  .button {
+    font-size: small;
+  }
+}

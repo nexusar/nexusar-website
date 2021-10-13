@@ -13,7 +13,8 @@ import Login from '../pages/Login/Login';
 import Dashboard from '../pages/Login/Dashboard';
 import Loading from '../pages/Loading';
 import Admin from '../pages/Admin/Admin';
-import Solutions from '../pages/Solutions';
+import Solutions from '../pages/Solutions/Solutions';
+import SolutionPage from '../pages/Solutions/SolutionPage';
 
 const Routes = () => {
   const location = useLocation();
@@ -44,8 +45,11 @@ const Routes = () => {
           <Home />
         </Route>
 
-        <Route path="/solutions">
+        <Route path="/solutions" exact>
           <Solutions />
+        </Route>
+        <Route path="/solutions/:solutionId" exact>
+          <SolutionPage />
         </Route>
 
         <Route path="/apply">
