@@ -5,7 +5,7 @@ import classes from './CardOne.module.css';
 
 const CardOne = () => {
   return (
-    <Paper elevation={3} className={classes.card}>
+    <Paper elevation={4} className={classes.card}>
       <Grid container>
         <Grid item xs={12} sm={6}>
           <Container sx={{ pt: 4, mx: 2 }}>

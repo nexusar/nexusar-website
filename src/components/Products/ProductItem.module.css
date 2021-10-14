@@ -1,0 +1,68 @@
+.image0 {
+  content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_mini__dn6g8b0hw8om_large.jpg');
+}
+
+.image1 {
+  content: url('https://www.apple.com/in/ipad/home/images/overview/hero/ipad_10_2__7yowwyyrbmaa_large.jpg');
+}
+
+.image2 {
+  content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_air__d794tkovmk02_large.jpg');
+}
+
+.bigHeader {
+  font-size: 80px;
+  line-height: 1.05;
+  font-family: 'SF Pro Display Heavy';
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 17px;
+  line-height: 1.17648;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  min-width: 28px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 980px;
+  background: #0071e3;
+  color: #fff;
+}
+
+@media screen and (max-width: 769px) {
+  .bigHeader {
+    font-size: 60px;
+  }
+  .image0 {
+    content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_mini__dn6g8b0hw8om_medium.jpg');
+  }
+  .image1 {
+    content: url('https://www.apple.com/in/ipad/home/images/overview/hero/ipad_10_2__7yowwyyrbmaa_medium.jpg');
+  }
+
+  .image2 {
+    content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_air__d794tkovmk02_medium.jpg');
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .button {
+    font-size: 14px;
+  }
+  .image0 {
+    content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_mini__dn6g8b0hw8om_small.jpg');
+  }
+  .image1 {
+    content: url('https://www.apple.com/in/ipad/home/images/overview/hero/ipad_10_2__7yowwyyrbmaa_small.jpg');
+  }
+
+  .image2 {
+    content: url('https://www.apple.com/v/ipad/home/bq/images/overview/hero/ipad_air__d794tkovmk02_small.jpg');
+  }
+}

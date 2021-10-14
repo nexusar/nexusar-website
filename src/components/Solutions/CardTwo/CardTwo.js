@@ -5,7 +5,7 @@ import classes from './CardTwo.module.css';
 
 const CardTwo = () => {
   return (
-    <Paper elevation={3} className={classes.card}>
+    <Paper elevation={4} className={classes.card}>
       <Container sx={{ py: 4, mx: 2 }}>
         <h3>Machine Learning</h3>
       </Container>
@@ -27,7 +27,7 @@ const CardTwo = () => {
           </Container>
         </Grid>
         <Grid item xs={12} sm={6} order={{ xs: 2, sm: 1 }} sx={{ alignItems: 'center', display: 'flex' }}>
-          <Container>
+          <Container sx={{ overflow: 'hidden' }}>
             <img alt="card-1" className={classes.image} />
           </Container>
         </Grid>

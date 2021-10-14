@@ -12,7 +12,7 @@ const Navbar = () => {
     });
   }, []);
 
-  const navTextItems = ['Home', 'About Us', 'Products', 'Solutions', 'Blogs', 'Support', 'Leadership', 'Pricing'];
+  const navTextItems = ['Home', 'About Us', 'Products', 'Solutions', 'Blogs', 'Support', 'Leadership', 'Careers'];
 
   return (
     <header>

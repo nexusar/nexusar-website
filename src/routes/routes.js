@@ -5,7 +5,7 @@ import Home from '../pages/Home';
 import { Fragment } from 'react';
 import Navbar from '../components/layout/navbar/NavBar';
 import NotFound from '../pages/NotFound';
-import Apply from '../pages/Apply';
+import Careers from '../pages/Careers';
 import Blogs from '../pages/Blogs';
 import Leadership from '../pages/Leadership/Leadership';
 import Leader from '../pages/Leadership/Leader';
@@ -15,6 +15,7 @@ import Loading from '../pages/Loading';
 import Admin from '../pages/Admin/Admin';
 import Solutions from '../pages/Solutions/Solutions';
 import SolutionPage from '../pages/Solutions/SolutionPage';
+import Products from '../pages/Products/Products';
 
 const Routes = () => {
   const location = useLocation();
@@ -52,8 +53,12 @@ const Routes = () => {
           <SolutionPage />
         </Route>
 
-        <Route path="/apply">
-          <Apply />
+        <Route path="/products">
+          <Products />
+        </Route>
+
+        <Route path="/careers">
+          <Careers />
         </Route>
 
         <Route path="/blogs">

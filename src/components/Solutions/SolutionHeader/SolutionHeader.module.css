@@ -1,0 +1,15 @@
+.image {
+  content: url('https://www.apple.com/in/ipad-keyboards/images/overview/ipad_keyboards_hero__gmkwo4jwfziq_medium_2x.jpg');
+}
+
+@media screen and (max-width: 768px) {
+  .image {
+    content: url('https://www.apple.com/in/ipad-keyboards/images/overview/ipad_keyboards_hero__gmkwo4jwfziq_medium.jpg');
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .image {
+    content: url('https://www.apple.com/in/ipad-keyboards/images/overview/ipad_keyboards_hero__gmkwo4jwfziq_small.jpg');
+  }
+}

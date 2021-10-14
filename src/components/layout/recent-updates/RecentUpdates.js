@@ -10,7 +10,7 @@ const RecentUpdates = (props) => {
       <div className={classes.container}>
         <p>
           We at Nexusar are hiring employees. Get a chance to be a part of this amazing journey with us.{' '}
-          <TextLinks text="Apply now" path="/apply" isAnimated="true" />
+          <TextLinks text="Apply now" path="/careers" isAnimated="true" />
         </p>
       </div>
     </Fragment>

@@ -1,0 +1,17 @@
+.bigHeader {
+  font-size: 80px;
+  line-height: 1.05;
+  font-family: 'SF Pro Display Heavy';
+  padding-bottom: 20px;
+}
+
+.image {
+  padding-top: 20px;
+  content: url('https://www.apple.com/newsroom/images/product/mac/standard/Apple_16-inch-MacBook-Pro_Advanced-Thermal-Design_111319_inline.gif.large_2x.gif');
+}
+
+@media screen and (max-width: 768px) {
+  .bigHeader {
+    font-size: 60px;
+  }
+}

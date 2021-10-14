@@ -1,7 +1,7 @@
 import classes from './Intro.module.css';
 import LocalNav from '../../components/layout/local-nav/LocalNav';
 import { Grid, Container, IconButton } from '@mui/material';
-import SineWave from '../../components/ui/sine-wave/SineWave';
+import { Box } from '@mui/system';
 import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import { useHistory } from 'react-router-dom';
 
@@ -41,13 +41,13 @@ const Intro = () => {
               </Grid>
             </Container>
 
-            <SineWave />
+            {/* <SineWave /> */}
+            <Box py={4} />
 
             <p>Discover more</p>
             <IconButton onClick={clickHandler} className={classes.downwardIcon}>
               <ArrowDownwardRoundedIcon style={{ fontSize: '3em', color: 'white' }} />
             </IconButton>
-
           </div>
         </Container>
       </div>

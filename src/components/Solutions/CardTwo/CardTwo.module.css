@@ -29,6 +29,6 @@
     content: url('https://www.apple.com/v/macbook-air/k/images/overview/machine_learning__d8u6dxf5xawm_small.png');
   }
   .button {
-    font-size: small;
+    font-size: medium;
   }
 }
