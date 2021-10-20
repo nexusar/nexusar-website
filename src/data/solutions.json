@@ -1,0 +1,42 @@
+[
+    {
+        "id": "asset-tracking-and-analysis",
+        "category": "Defense Applicaitons",
+        "name": "Asset tracking and analysis",
+        "description": "iPad keyboards provide a great typing experience, and lightweight, durable protection for your iPad. And they attach to iPad magnetically — no need for switches, plugs and pairing. The Magic Keyboard delivers even more with a floating design, backlit keys and a built‑in trackpad.",
+        "l0": "Manage critical assets, prevent failure",
+        "l0_sub": "Understand asset location, condition, performance, and life",
+        "l0_content": "It’s here. Our first chip designed specifically for Mac. Packed with an astonishing 16 billion transistors, the Apple M1 system on a chip (SoC) integrates the CPU, GPU, Neural Engine, I/O and so much more onto a single tiny chip. With incredible performance, custom technologies and industry-leading power efficiency,1 M1 is not just a next step for Mac — it’s another level entirely.",
+        "l1": "Enhance asset performance",
+        "l1_choose": [
+            "Asset Management",
+            "Minimize Risks",
+            "Maximize Performance"
+        ],
+        "l1_content": "Asset managers must minimize risks and maximize performance while managing costs and resources for fixed and moving assets. Innovative managers use smart maps and dashboards to achieve a holistic view of their assets. Location intelligence enhances day-to-day operations such as inspections, maintenance, and investment planning.",
+        "l2": "Monitor Performance",
+        "l2_choose": "When managers use innovative maps and visualizations to perform asset tracking and analysis, they help their organizations reduce errors and save time; and make informed data-driven decisions.",
+        "l2_content": "Increase inventory accuracy by using modern data collection apps. Track asset condition and planner-time throughout the life cycle. Share status updates quickly and seamlessly with the field and office. Forecast maintenance costs and needs to improve reliability. Manage customer expectations. Integrate fully into existing asset management systems and inventory tracking.",
+        "l3": "Spatial Analysis and Data Science",
+        "l3_choose": [
+            "Uncover hidden patterns",
+            "Enhanced Tracking",
+            "Competitive Edge"
+        ],
+        "l3_content": "Use location as the connective thread to uncover hidden patterns and trends for enhanced asset tracking and analysis. Gain a competitive edge by integrating location into machine learning models and artificial intelligence.",
+        "l4_1": "Real-Time Visualization and Analytics",
+        "l4_1_content": "Know asset location and conditional-time time and predict failures before they can happen. Use location intelligence based on the most up-to-date information to make informed decisions about asset tracking and analysis.",
+        "l4_2": "Field Operations",
+        "l4_2_content": "Improve coordination and operational efficiency in workforce activities. Reduce or even replace paper reliance, modernize workflows for reliable and accessible data, and access the power of location anywhere.",
+        "l5_1": "Logistic fulfilment",
+        "l5_1_content": "Organize complex delivery operative to ensure your supplies and products are where they need to be promptly planned.",
+        "l5_2": "Performance monitoring",
+        "l5_2_choose": [
+            "Improve communication",
+            "More collaboration"
+        ],
+        "l5_2_content": "Get a real-time of people, services assets and events: improve communication and collaboration. ",
+        "l5_3": "Facility management",
+        "l5_3_content": "Manage and maintain facility safely and operations with powerful data management and visualization capabilities."
+    }
+]

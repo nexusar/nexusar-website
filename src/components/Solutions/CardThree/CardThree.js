@@ -3,17 +3,19 @@ import { Container, Grid, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 import classes from './CardThree.module.css';
 
-const CardThree = () => {
+const CardThree = (props) => {
+  const { heading, highlights, content } = props;
+
   return (
     <Paper elevation={4} className={classes.card}>
       <Grid container>
         <Grid item xs={12} sm={9}>
           <Container sx={{ pt: 4, mx: 2 }}>
-            <h3>GPU</h3>
+            <h3>{heading}</h3>
           </Container>
           <Container sx={{ py: 6, mx: 2 }}>
             <h1 className={classes.bigHeader}>
-              <span style={{ color: '#4693ad' }}>8-core GPU</span> <br /> Plays hard. <br /> Works wonders.
+              <span style={{ color: '#4693ad' }}>{highlights[0]}</span> <br /> {highlights[1]}. <br /> {highlights[2]}.
             </h1>
             <Box sx={{ py: 4 }} />
             <Link to="#" className={classes.button}>
@@ -23,9 +25,7 @@ const CardThree = () => {
         </Grid>
         <Grid item xs={12} sm={3} sx={{ alignItems: 'center', justifyContent: 'center', display: 'flex' }}>
           <Container sx={{ py: 4 }}>
-            <h3>Upto</h3>
-            <h1 className={classes.bigHeader}>5x</h1>
-            <h3>faster graphics</h3>
+            <h3>{content}</h3>
           </Container>
         </Grid>
       </Grid>

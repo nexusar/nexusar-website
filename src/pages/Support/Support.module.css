@@ -1,0 +1,30 @@
+.image {
+  content: url('https://support.apple.com/content/dam/edam/applecare/images/en_US/homepage/psp-hero-banner-homepage-welcome.image.large_2x.jpg');
+  width: 100%;
+}
+
+.header {
+  color: white;
+  font-size: 60px;
+  font-family: 'SF Pro Display Heavy';
+  position: absolute;
+  top: 150px;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .image {
+    content: url('https://support.apple.com/content/dam/edam/applecare/images/en_US/homepage/psp-hero-banner-homepage-welcome.image.small_2x.jpg');
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .header {
+    color: var(--font-color);
+    font-family: 'SF Pro Display SemiBold';
+    font-size: 32px;
+    position: relative;
+    top: 10px;
+  }
+}

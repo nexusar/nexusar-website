@@ -1,0 +1,40 @@
+.card1 {
+  background: url('https://www.apple.com/v/macbook-air/k/images/overview/memory_bg__crav6mda4kom_medium_2x.jpg');
+  color: white !important;
+  border-radius: 25px !important;
+  height: 100%;
+}
+
+.card2 {
+  background: linear-gradient(to right top, #604c7c 0%, #257983 50%, #20825a 100%);
+  color: white !important;
+  border-radius: 25px !important;
+  height: 100%;
+}
+
+.card3 {
+  background: linear-gradient(201deg, #ef278e 0%, #81347f 47%, #43407a 100%);
+  color: white !important;
+  border-radius: 25px !important;
+  height: 100%;
+}
+
+.bigHeader {
+  line-height: 1.2;
+  font-family: 'SF Pro Display Heavy';
+}
+
+.button {
+  background-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 100px;
+  padding: 9px 17px;
+  white-space: normal;
+}
+
+@media screen and (max-width: 426px) {
+  .button {
+    font-size: medium;
+  }
+}

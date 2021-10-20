@@ -7,7 +7,7 @@ const SubNav = (props) => {
     <div style={{ backgroundColor: '#f8f8f8' }}>
       <div
         style={{
-          padding: '32px 0px',
+          padding: '24px 0px',
           display: 'flex',
           overflowX: 'auto',
         }}

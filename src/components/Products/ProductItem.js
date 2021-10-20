@@ -36,7 +36,7 @@ const ProductItem = (props) => {
     <Fragment>
       <Box my={2} pt={4} sx={{ backgroundColor: 'white' }}>
         <Grid container sx={{ textAlign: 'center', alignItems: 'center', overflow: 'hidden' }} spacing={4}>
-          <Grid item xs={0} sm={3}></Grid>
+          <Grid item sm={3}></Grid>
           <ItemContent />
           <ItemImage number={0} />
         </Grid>
@@ -44,18 +44,18 @@ const ProductItem = (props) => {
       <Box my={2} pt={4} sx={{ backgroundColor: 'white' }}>
         <Grid container sx={{ textAlign: 'center', alignItems: 'center', overflow: 'hidden' }} spacing={4}>
           <ItemImage number={1} />
-          <Grid item xs={0} sm={2} md={0}></Grid>
+          <Grid item sm={2}></Grid>
           <ItemContent />
-          <Grid item xs={0} sm={1} md={3}></Grid>
+          <Grid item sm={1} md={3}></Grid>
         </Grid>
       </Box>
       <Box my={2} pt={4} sx={{ backgroundColor: 'white' }}>
         <Grid container sx={{ textAlign: 'center', alignItems: 'center', overflow: 'hidden' }} spacing={4}>
-          <Grid item xs={0} sm={1}></Grid>
+          <Grid item sm={1}></Grid>
           <ItemContent />
-          <Grid item xs={0} sm={1}></Grid>
+          <Grid item sm={1}></Grid>
           <ItemImage number={2} />
-          <Grid item xs={0} sm={1}></Grid>
+          <Grid item sm={1}></Grid>
         </Grid>
       </Box>
     </Fragment>

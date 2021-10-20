@@ -16,6 +16,8 @@ import Admin from '../pages/Admin/Admin';
 import Solutions from '../pages/Solutions/Solutions';
 import SolutionPage from '../pages/Solutions/SolutionPage';
 import Products from '../pages/Products/Products';
+import Support from '../pages/Support/Support';
+import AboutUs from '../pages/About';
 
 const Routes = () => {
   const location = useLocation();
@@ -46,6 +48,10 @@ const Routes = () => {
           <Home />
         </Route>
 
+        <Route path="/about-us">
+          <AboutUs />
+        </Route>
+
         <Route path="/solutions" exact>
           <Solutions />
         </Route>
@@ -63,6 +69,10 @@ const Routes = () => {
 
         <Route path="/blogs">
           <Blogs />
+        </Route>
+
+        <Route path="/support">
+          <Support />
         </Route>
 
         <Route path="/leadership" exact>

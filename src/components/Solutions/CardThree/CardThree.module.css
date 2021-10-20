@@ -7,7 +7,7 @@
 }
 
 .bigHeader {
-  font-size: 80px;
+  font-size: 60px;
   line-height: 1.05;
   font-family: 'SF Pro Display Heavy';
 }
@@ -23,7 +23,7 @@
 
 @media screen and (max-width: 768px) {
   .bigHeader {
-    font-size: 60px;
+    font-size: 40px;
   }
 }
 
