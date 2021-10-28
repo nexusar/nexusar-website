@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Container } from '@mui/material';
 import { Box } from '@mui/system';
+import AdminPage from '../../components/Admin/AdminPage';
 
 const Admin = () => {
   return (
@@ -10,8 +11,9 @@ const Admin = () => {
         <h1>Welcome Database Adminstrator</h1>
         <p>
           Here you will find a list of all employees in the organisation. You can read and modify their propreitary
-          information
+          information.
         </p>
+        <AdminPage />
       </Container>
     </Fragment>
   );

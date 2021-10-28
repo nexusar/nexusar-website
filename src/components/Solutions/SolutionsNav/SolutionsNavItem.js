@@ -13,7 +13,7 @@ const SolutionsNavItem = (props) => {
   };
 
   return (
-    <Container className={classes.item} sx={{ fontWeight: selected[index] ? 'bolder' : 'normal' }}>
+    <Container className={classes.item} sx={{ textDecoration: selected[index] ? 'underline' : 'none' }}>
       <Link to="#" onClick={clickHandler}>
         <i className={`fas fa-${icon} ${classes.icon}`}></i>
         <div>

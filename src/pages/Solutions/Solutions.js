@@ -8,7 +8,7 @@ const Solutions = () => {
   const [navItemsState, setNavItemsState] = useState(Array(10).fill(false));
 
   const navItems = [
-    { name: 'Water Resource Management', icon: 'hand-holding-water' },
+    { name: 'Location Solutions', icon: 'map-marker-alt' },
     { name: 'Ground Subsidience', icon: 'mountain' },
     { name: 'Highway Construction', icon: 'road' },
     { name: 'Defense Applications', icon: 'fighter-jet' },
@@ -23,6 +23,10 @@ const Solutions = () => {
   const backdropClickHandler = () => {
     setNavItemsState(Array(10).fill(false));
   };
+
+  const selectedCategoryIndex = navItemsState.indexOf(true);
+  const selectedCategoryID =
+    selectedCategoryIndex !== -1 ? navItems[selectedCategoryIndex].name.toLowerCase().split(' ').join('-') : '';
 
   return (
     <Fragment>
@@ -62,7 +66,7 @@ const Solutions = () => {
               }}
               onClick={backdropClickHandler}
             ></div>
-            <SolutionsNavDrop />
+            <SolutionsNavDrop categoryID={selectedCategoryID} />
           </Fragment>
         )}
       </div>

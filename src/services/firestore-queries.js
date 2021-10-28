@@ -163,3 +163,20 @@ export const uploadFileToStorage = (
     alert(`Please select a file first`);
   }
 };
+
+// Get a list of all employees other than the DB adminstrator
+export const getAllEmployeesList = (setAllEmployees) => {
+  const colRef = db.collection('EmployeeDatabase');
+  colRef
+    .get()
+    .then((col) => {
+      if (col) {
+        const allDocsData = col.docs.map((doc) => {
+          const data = doc.data();
+          return { ...data, email: doc.id };
+        });
+        setAllEmployees(allDocsData);
+      } else console.log('Collection does not exist');
+    })
+    .catch((error) => alert(`The following error was thrown: ${error}. Please contact support.`));
+};

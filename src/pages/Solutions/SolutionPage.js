@@ -6,8 +6,8 @@ import SolutionContent from '../../components/Solutions/SolutionContent';
 
 const SolutionPage = () => {
   const location = useLocation();
-  const solutionName = location.pathname.split('/')[2].split('-').join(' ');
-  const solutionID = 'asset-tracking-and-analysis';
+  const solutionID = location.pathname.split('/')[2];
+  const solutionName = solutionID.split('-').join(' ');
 
   return (
     <Fragment>

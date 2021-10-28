@@ -3,21 +3,27 @@ import { Box } from '@mui/system';
 import SolutionsNavDropItem from './SolutionsNavDropItem';
 import classes from './SolutionsNavDrop.module.css';
 
-const data = new Array(10).fill({
-  title: 'Water Resource Management',
-  desc: 'Water resource management is the activity of planning, developing, distributing and managing the optimum use of water resources',
-});
+import allSolutionsData from '../../../../data/solutions.json';
 
-const SolutionsNavDrop = () => {
+const SolutionsNavDrop = (props) => {
+  const { categoryID } = props;
+  const filteredSolutionsData = allSolutionsData.filter((data) => data.category_id === categoryID);
+  const data = filteredSolutionsData.map((filteredSolution) => {
+    return { title: filteredSolution.name, desc: filteredSolution.l0_sub };
+  });
+
   return (
     <div className={classes.dropContainer}>
-      <Box sx={{ py: 8, px: { xs: 2, sm: 8 } }}>
-        <Grid container spacing={4} key={Math.random()}>
-          {data.map((entry, index) => {
-            const itemId = entry.title.toLowerCase().split(' ').join('-');
-            return <SolutionsNavDropItem key={index} title={entry.title} desc={entry.desc} itemId={itemId} />;
-          })}
-        </Grid>
+      <Box sx={{ py: 4, px: { xs: 2, sm: 8 } }}>
+        {!data.length && <small>No solution found under this domain. Please wait while we add more solutions.</small>}
+        {data.length !== 0 && (
+          <Grid container spacing={4} key={Math.random()}>
+            {data.map((entry, index) => {
+              const itemId = entry.title.toLowerCase().split(' ').join('-');
+              return <SolutionsNavDropItem key={index} title={entry.title} desc={entry.desc} itemId={itemId} />;
+            })}
+          </Grid>
+        )}
       </Box>
     </div>
   );

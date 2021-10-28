@@ -33,7 +33,6 @@
 .bigHeader {
   font-size: 12rem;
   position: relative;
-  font-family: 'Cinzel';
   font-weight: bold;
   animation: moveUp 1s normal forwards ease-in-out;
 }

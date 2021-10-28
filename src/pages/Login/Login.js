@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from 'react';
-import { Container, Divider } from '@mui/material';
+import { Container, Divider, Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebase.js';
@@ -30,12 +30,26 @@ const Login = () => {
         <p>This page is for company's employees and clients. You won't be logged in unless you are one.</p>
         <Divider light sx={{ py: 1 }} />
       </Container>
-      <Container sx={{ py: 4 }}>
-        <h2>Login as an employee</h2>
-        <p>You can use your Google or Apple accounts for logging in</p>
+      <Container>
+        <Grid container>
+          <Grid item xs={12} md={6}>
+            <Box sx={{ py: 4 }}>
+              <h2>Login as an employee</h2>
+              <p>You can use your Google or Apple accounts for logging in</p>
+            </Box>
+            <LoginButton name="Apple" logo={appleLogo} />
+            <LoginButton name="Google" logo={googleLogo} loginHandler={googleAuth} />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box sx={{ py: 4 }}>
+              <h2>Login as a client</h2>
+              <p>You can use your Google or Apple accounts for logging in</p>
+            </Box>
+            <LoginButton name="Apple" logo={appleLogo} />
+            <LoginButton name="Google" logo={googleLogo} loginHandler={googleAuth} />
+          </Grid>
+        </Grid>
       </Container>
-      <LoginButton name="Apple" logo={appleLogo} />
-      <LoginButton name="Google" logo={googleLogo} loginHandler={googleAuth} />
     </Fragment>
   );
 };

@@ -14,9 +14,12 @@ const CardThree = (props) => {
             <h3>{heading}</h3>
           </Container>
           <Container sx={{ py: 6, mx: 2 }}>
-            <h1 className={classes.bigHeader}>
-              <span style={{ color: '#4693ad' }}>{highlights[0]}</span> <br /> {highlights[1]}. <br /> {highlights[2]}.
-            </h1>
+            {highlights && (
+              <h1 className={classes.bigHeader}>
+                <span style={{ color: '#4693ad' }}>{highlights[0]}</span> <br /> {highlights[1]}. <br /> {highlights[2]}
+                .
+              </h1>
+            )}
             <Box sx={{ py: 4 }} />
             <Link to="#" className={classes.button}>
               See how M1 revs up graphics

@@ -14,9 +14,12 @@ const CardOne = (props) => {
             <h3>{heading}</h3>
           </Container>
           <Container sx={{ py: 6, mx: 2 }}>
-            <h1 className={classes.bigHeader}>
-              <span style={{ color: '#c48cfc' }}>{highlights[0]}</span> <br /> {highlights[1]}. <br /> {highlights[2]}.
-            </h1>
+            {highlights && (
+              <h1 className={classes.bigHeader}>
+                <span style={{ color: '#c48cfc' }}>{highlights[0]}</span> <br /> {highlights[1]}. <br /> {highlights[2]}
+                .
+              </h1>
+            )}
             <Box sx={{ py: 2 }} />
             <p>{content}</p>
             <Box sx={{ py: 2 }} />

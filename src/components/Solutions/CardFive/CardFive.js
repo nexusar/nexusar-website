@@ -24,9 +24,11 @@ const CardFive = (props) => {
           </Container>
           <Container sx={{ my: 12 }}>
             <h3>{content2}</h3>
-            <h1 style={{ paddingTop: '20px' }} className={classes.bigHeader}>
-              {highlights2[0]}. {highlights2[1]}.
-            </h1>
+            {highlights2 && (
+              <h1 style={{ paddingTop: '20px' }} className={classes.bigHeader}>
+                {highlights2[0]}. {highlights2[1]}.
+              </h1>
+            )}
           </Container>
         </Paper>
       </Grid>
