@@ -1,9 +1,7 @@
-import { Container, Grid, Paper } from '@mui/material';
-import { Box } from '@mui/system';
+import { Avatar, Container, Grid, Paper } from '@mui/material';
 import useInput from '../../hooks/use-input';
 import { useState, useEffect } from 'react';
 import InputField from '../ui/input-field/InputField';
-import InputArea from '../ui/input-area/InputArea';
 import { getEmployeePersonalInfo } from '../../services/firestore-queries';
 
 const isNotEmpty = (value) => value.trim() !== '';
@@ -113,13 +111,14 @@ const AdminEntry = (props) => {
   };
 
   return (
-    <Paper elevation={4} sx={{ backgroundColor: 'white', borderRadius: 1, my: 4 }}>
+    <Paper elevation={4} sx={{ backgroundColor: 'white', borderRadius: 1 }}>
       <Container sx={{ py: 4 }}>
         <h3>
           {employeePersonalInfo.firstNameValue
             ? `${employeePersonalInfo.firstNameValue} ${employeePersonalInfo.lastNameValue}`
             : 'Personal Information Not Found'}
         </h3>
+        <p style={{ color: 'GrayText' }}>Email: {employeeData.email}</p>
 
         <form onSubmit={formSubmitHandler}>
           <Grid container spacing="12">
@@ -133,8 +132,27 @@ const AdminEntry = (props) => {
                 value={departmentValue}
                 placeholder="Software Development"
               />
+              <InputField
+                label="Position"
+                type="text"
+                valueChangeHandler={positionChangeHandler}
+                inputBlurHandler={positionBlurHandler}
+                hasError={positionHasError}
+                value={positionValue}
+                placeholder="Intern"
+              />
             </Grid>
 
+            <Grid item xs={12} sm={6} order={{ xs: 1, sm: 2 }} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Avatar
+                alt={employeePersonalInfo.firstNameValue}
+                src={employeePersonalInfo.profilePictureValue}
+                sx={{ width: 196, height: 196 }}
+              />
+            </Grid>
+          </Grid>
+
+          <Grid container spacing="12">
             <Grid item xs={12} sm={6}>
               <InputField
                 label="Manager"
@@ -144,20 +162,6 @@ const AdminEntry = (props) => {
                 hasError={managerHasError}
                 value={managerValue}
                 placeholder="Jeff Bezos"
-              />
-            </Grid>
-          </Grid>
-
-          <Grid container spacing="12">
-            <Grid item xs={12} sm={6}>
-              <InputField
-                label="Position"
-                type="text"
-                valueChangeHandler={positionChangeHandler}
-                inputBlurHandler={positionBlurHandler}
-                hasError={positionHasError}
-                value={positionValue}
-                placeholder="Intern"
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -176,6 +180,17 @@ const AdminEntry = (props) => {
           <Grid container spacing="12">
             <Grid item xs={12} sm={6}>
               <InputField
+                label="Supervisors' List"
+                type="text"
+                valueChangeHandler={superiorsChangeHandler}
+                inputBlurHandler={superiorsBlurHandler}
+                hasError={superiorsHasError}
+                value={superiorsValue}
+                placeholder="Please enter a list of emails separated by commas."
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <InputField
                 label="Salary (in INR)"
                 type="number"
                 valueChangeHandler={salaryChangeHandler}
@@ -185,26 +200,14 @@ const AdminEntry = (props) => {
                 placeholder="25000"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <InputArea
-                label="Superiors' List"
-                type="text"
-                valueChangeHandler={superiorsChangeHandler}
-                inputBlurHandler={superiorsBlurHandler}
-                hasError={superiorsHasError}
-                value={superiorsValue}
-                placeholder="Please enter a list of emails separated by commas."
-              />
-            </Grid>
           </Grid>
 
-          <Grid container sx={{ pt: 4 }}>
+          <Grid container sx={{ pt: 4 }} spacing={{ xs: 2, sm: 4 }}>
             <Grid item xs={12} sm={4}>
               <button className="form-button" type="submit" disabled={!formIsValid}>
                 Update Details
               </button>
             </Grid>
-            <Box sx={{ px: 2 }} />
             <Grid item xs={12} sm={4}>
               <button className="form-button-danger" type="button" onClick={removeEmployeeHandler}>
                 Remove Employee

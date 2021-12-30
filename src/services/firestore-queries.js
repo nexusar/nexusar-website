@@ -148,9 +148,16 @@ export const uploadFileToStorage = (
       .then(() => {
         imageRef.getDownloadURL().then((url) => {
           const uid = folderName;
-          db.collection(collectionName)
-            .doc(uid)
-            .update({ [field]: url });
+          const docRef = db.collection(collectionName).doc(uid);
+
+          docRef
+            .get()
+            .then((doc) => {
+              if (doc.exists) docRef.update({ [field]: url });
+              else docRef.set({ [field]: url });
+            })
+            .catch((error) => docRef.set({ [field]: url }));
+
           setFileSrc(url);
           setUploading(false);
           if (setOpen) setOpen(true);

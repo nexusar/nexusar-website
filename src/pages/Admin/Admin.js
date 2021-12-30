@@ -13,7 +13,9 @@ const Admin = () => {
           Here you will find a list of all employees in the organisation. You can read and modify their propreitary
           information.
         </p>
-        <AdminPage />
+        <Box sx={{ py: 4 }}>
+          <AdminPage />
+        </Box>
       </Container>
     </Fragment>
   );

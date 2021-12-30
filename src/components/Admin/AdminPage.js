@@ -1,11 +1,11 @@
 import AdminEntry from './AdminEntry';
-import { Box } from '@mui/system';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../services/firebase';
 import Loading from '../../pages/Loading';
 import { getAllEmployeesList } from '../../services/firestore-queries';
+import { Grid } from '@mui/material';
 
 const AdminPage = () => {
   const history = useHistory();
@@ -20,10 +20,16 @@ const AdminPage = () => {
   }, [user, loading, error, history]);
 
   return (
-    <Box>
-      {allEmployees.length !== 0 &&
-        allEmployees.map((employeeData) => <AdminEntry key={Math.random()} employeeData={employeeData} />)}
-    </Box>
+    <Fragment>
+      <Grid container spacing={4}>
+        {allEmployees.length !== 0 &&
+          allEmployees.map((employeeData) => (
+            <Grid item xs={12} key={Math.random()}>
+              <AdminEntry employeeData={employeeData} />
+            </Grid>
+          ))}
+      </Grid>
+    </Fragment>
   );
 };
 
